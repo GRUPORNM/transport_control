@@ -1,0 +1,19 @@
+<mvc:View controllerName="zmmtransportcontrol.controller.MainWizard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:sf="sap.ui.comp.smartfield"
+    xmlns:layout="sap.ui.layout" height="100%"
+    xmlns:core="sap.ui.core">
+    <NavContainer id="navContainer">
+        <pages>
+            <f:DynamicPage id="dynamicPage" toggleHeaderOnTitleClick="{/titleClickable}" stickySubheaderProvider="ShoppingCartWizard" class="sapUiNoContentPadding" showFooter="false">
+                <f:content>
+                    <Wizard id="MainWizard" finishButtonText="{i18n>confInspecao}" showNextButton="{oViewModel>/showNextBtn}" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="onConfInspecao" enableBranching="true">
+                    </Wizard>
+                </f:content>
+            </f:DynamicPage>
+        </pages>
+    </NavContainer>
+</mvc:View>

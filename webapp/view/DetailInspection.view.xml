@@ -1,0 +1,89 @@
+<mvc:View controllerName="zmmtransportcontrol.controller.DetailInspection"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form">
+    <m:Page floatingFooter="true" title="{Referencia}">
+        <m:content>
+            <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" isChildPage="false" upperCaseAnchorBar="false">
+                <headerContent>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>referencia}"/>
+                        <m:Text text="{Referencia}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>dataInspecao}"/>
+                        <m:Text text="{path : 'Data', formatter: '.formatter.dateFormat'}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>localInspecao}"/>
+                        <m:Text text="{LocalInspecaoNo}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>matriculas}"/>
+                        <m:Text text="{Viatura}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>motorista}"/>
+                        <m:Text text="{Motorista}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>transportadora}"/>
+                        <m:Text text="{Transportadora}"/>
+                    </m:VBox>
+                    <m:VBox justifyContent="Center" class="sapUiMediumMargin">
+                        <m:Label text="{i18n>Verificador}"/>
+                        <m:Text text="{Verificador} "/>
+                    </m:VBox>
+                </headerContent>
+                <sections>
+                    <ObjectPageSection titleUppercase="false" title="{i18n>InfoGerais}">
+                        <subSections>
+                            <ObjectPageSubSection>
+                                <blocks>
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label text="{i18n>resultado}"/>
+                                        <m:ObjectStatus class="sapUiSmallMarginBottom" id="resultadoInspecao" text="{oDetailModel>/ResultadoInspecao/text}" icon="{oDetailModel>/ResultadoInspecao/icon}" state="{oDetailModel>/ResultadoInspecao/state}"/>
+                                    </m:VBox>
+
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label text="{i18n>observacoes}"/>
+                                        <m:Text text="{ObsInpecao}"/>
+                                    </m:VBox>
+
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label visible="{oDetailModel>/LabelVisivelDataReinsp}" text="{i18n>DatadaReinspecao}"/>
+                                        <m:Text text="{
+                                        path: 'oDetailModel>/DataReinspecao',
+                                        formatter: '.formatter.dateFormat'
+                                    }"/>
+                                    </m:VBox>
+
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label visible="{oDetailModel>/LabelVisivelObsReinsp}" text="{i18n>observacoesReins}"/>
+                                        <m:Text text="{oDetailModel>/ObsReinspecao}"/>
+                                    </m:VBox>
+
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label visible="{oDetailModel>/LabelVisivel}" text="{i18n>desviosDetectados}"/>
+                                        <m:FormattedText htmlText="{oDetailModel>/DivergenciasDetectadas}"/>
+                                    </m:VBox>
+
+                                    <m:VBox justifyContent="Center" class="sapUiSmallMargin">
+                                        <m:Label visible="{oDetailModel>/LabelVisivelInsp}" text="{i18n>DataProximaInspecao}"/>
+                                        <m:Text visible="{oDetailModel>/LabelVisivelInsp}" text="{
+                                        path: 'DataProximaInsp',
+                                        formatter: '.formatter.dateFormat'
+                                    }"/>
+                                    </m:VBox>
+
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                </sections>
+            </ObjectPageLayout>
+        </m:content>
+    </m:Page>
+</mvc:View>
